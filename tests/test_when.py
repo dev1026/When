@@ -44,48 +44,48 @@ class Test(unittest.TestCase):
         else:
             self.timezone = 'America/New_York'
 
-    def test__add_time(self):
+    def whentest__add_time(self):
         """Test when._add_time()"""
         # Test change between months with dfferent number of days
-        test_value = datetime.datetime(2012, 3, 31)
+        whentest_value = datetime.datetime(2012, 3, 31)
 
         expected_value = datetime.datetime(2012, 5, 1)
-        result = when._add_time(test_value, months=1)
+        result = when._add_time(whentest_value, months=1)
         self.assertEqual(result, expected_value)
 
         # Test values going back into February of a leap year
         expected_value = datetime.datetime(2012, 3, 2)
-        result = when._add_time(test_value, months=-1)
+        result = when._add_time(whentest_value, months=-1)
         self.assertEqual(result, expected_value)
 
-        test_value = datetime.datetime(2012, 3, 30)
+        whentest_value = datetime.datetime(2012, 3, 30)
 
         expected_value = datetime.datetime(2012, 3, 1)
-        result = when._add_time(test_value, months=-1)
+        result = when._add_time(whentest_value, months=-1)
         self.assertEqual(result, expected_value)
 
-        test_value = datetime.datetime(2011, 3, 31)
+        whentest_value = datetime.datetime(2011, 3, 31)
 
         expected_value = datetime.datetime(2011, 3, 3)
-        result = when._add_time(test_value, months=-1)
+        result = when._add_time(whentest_value, months=-1)
         self.assertEqual(result, expected_value)
 
         # Test leap day specifically
-        test_value = datetime.datetime(2012, 2, 29)
+        whentest_value = datetime.datetime(2012, 2, 29)
 
         expected_value = datetime.datetime(2013, 3, 1)
-        result = when._add_time(test_value, years=1)
+        result = when._add_time(whentest_value, years=1)
         self.assertEqual(result, expected_value)
 
         expected_value = datetime.datetime(2011, 3, 1)
-        result = when._add_time(test_value, years=-1)
+        result = when._add_time(whentest_value, years=-1)
         self.assertEqual(result, expected_value)
 
-    def test__add_time_assert(self):
+    def whentest__add_time_assert(self):
         """Test AssertionError raised by when._add_time()"""
         self.assertRaises(AssertionError, when._add_time, 'a')
 
-    def test__is_date_type(self):
+    def whentest__is_date_type(self):
         """Test when._is_date_type()"""
         self.assertFalse(when._is_date_type('a'))
         self.assertFalse(when._is_date_type(1))
@@ -95,31 +95,31 @@ class Test(unittest.TestCase):
         self.assertTrue(when._is_date_type(self.now))
         self.assertTrue(when._is_date_type(self.now.time()))
 
-    def test_all_timezones(self):
+    def whentest_all_timezones(self):
         """Test when.all_timezones()"""
         # Make sure all_timezones() matches pytz's version
         all_timezones = when.all_timezones()
         self.assertEqual(all_timezones, pytz.all_timezones)
 
-    def test_all_timezones_set(self):
+    def whentest_all_timezones_set(self):
         """Test when.all_timezones_set()"""
         # Make sure all_timezones_set() matches pytz's version
         all_timezones_set = when.all_timezones_set()
         self.assertEqual(all_timezones_set, pytz.all_timezones_set)
 
-    def test_common_timezones(self):
+    def whentest_common_timezones(self):
         """Test when.common_timezones()"""
         # Make sure common_timezones() matches pytz's version
         common_timezones = when.common_timezones()
         self.assertEqual(common_timezones, pytz.common_timezones)
 
-    def test_common_timezones_set(self):
+    def whentest_common_timezones_set(self):
         """Test when.common_timezones_set()"""
         # Make sure common_timezones_set() matches pytz's version
         common_timezones_set = when.common_timezones_set()
         self.assertEqual(common_timezones_set, pytz.common_timezones_set)
 
-    def test_ever(self):
+    def whentest_ever(self):
         """Test when.ever()"""
         old_result = None
         for i in range(50):
@@ -128,7 +128,7 @@ class Test(unittest.TestCase):
             self.assertNotEqual(result, old_result)
             old_result = result
 
-    def test_format(self):
+    def whentest_format(self):
         """Test when.format()"""
         now = when.now()
         today = when.today()
@@ -153,11 +153,11 @@ class Test(unittest.TestCase):
             result_time = when.format(current_time, format_string)
             self.assertEqual(builtin_time, result_time)
 
-    def test_format_assert(self):
+    def whentest_format_assert(self):
         """Test AssertionError raised by when.format()"""
         self.assertRaises(AssertionError, when.format, 'a', '%a')
 
-    def test_formats(self):
+    def whentest_formats(self):
         """Test the iteration of the formats class"""
         for k in when.formats:
             self.assertTrue(isinstance(k, basestring))
@@ -166,7 +166,7 @@ class Test(unittest.TestCase):
             locale_value = getattr(locale, value)
             self.assertTrue(isinstance(locale_value, int))
 
-    def test_formats_metaclass(self):
+    def whentest_formats_metaclass(self):
         """Test the metaclass of the formats class"""
         self.assertTrue(isinstance(when.formats, when._FormatsMetaClass))
         for k in when.formats:
@@ -174,7 +174,7 @@ class Test(unittest.TestCase):
             self.assertEqual(value, getattr(when._FormatsMetaClass, k))
             self.assertEqual(value, when._FormatsMetaClass.__dict__[k])
 
-    def test_how_many_leap_days(self):
+    def whentest_how_many_leap_days(self):
         """Test when.how_many_leap_days()"""
         # Tests with just years
         self.assertEqual(when.how_many_leap_days(2012, 2012), 0)
@@ -244,7 +244,7 @@ class Test(unittest.TestCase):
         # and 2800 need to be added back in. 250 - (10 - 3) = 243
         self.assertEqual(when.how_many_leap_days(dt1, d2), 243)
 
-    def test_how_many_leap_days_assert(self):
+    def whentest_how_many_leap_days_assert(self):
         """Test AssertionError raised by when.how_many_leap_days()"""
         d1 = when.today()
         d2 = when.yesterday()
@@ -256,7 +256,7 @@ class Test(unittest.TestCase):
         # from_date must be before to_date
         self.assertRaises(AssertionError, when.how_many_leap_days, d1, d2)
 
-    def test_is_timezone_aware(self):
+    def whentest_is_timezone_aware(self):
         """Test when.is_timezone_aware()"""
         naive = when.now()
         aware = naive.replace(tzinfo=pytz.UTC)
@@ -270,12 +270,12 @@ class Test(unittest.TestCase):
         self.assertTrue(when.is_timezone_aware(aware))
         self.assertFalse(when.is_timezone_aware(naive))
 
-    def test_is_timezone_aware_assert(self):
+    def whentest_is_timezone_aware_assert(self):
         """Test AssertionError raised by when.is_timezone_aware()"""
         today = when.today()
         self.assertRaises(AssertionError, when.is_timezone_aware, today)
 
-    def test_is_timezone_naive(self):
+    def whentest_is_timezone_naive(self):
         """Test when.is_timezone_naive()"""
         naive = when.now()
         aware = naive.replace(tzinfo=pytz.UTC)
@@ -289,12 +289,12 @@ class Test(unittest.TestCase):
         self.assertTrue(when.is_timezone_naive(naive))
         self.assertFalse(when.is_timezone_naive(aware))
 
-    def test_is_timezone_aware_naive(self):
+    def whentest_is_timezone_aware_naive(self):
         """Test AssertionError raised by when.is_timezone_naive()"""
         today = when.today()
         self.assertRaises(AssertionError, when.is_timezone_aware, today)
 
-    def test_now(self):
+    def whentest_now(self):
         """Test when.now()"""
         now = when.now()
         utc = when.now(True)
@@ -307,12 +307,12 @@ class Test(unittest.TestCase):
         self.assertTrue(now - self.now < self.one_second)
         self.assertTrue(utc - self.utc < self.one_second)
 
-    def test_set_utc(self):
+    def whentest_set_utc(self):
         """Test when.set_utc()"""
         when.set_utc()
         self.assertEqual(when._FORCE_UTC, True)
 
-    def test_shift(self):
+    def whentest_shift(self):
         """Test when.shift()"""
         first = when.shift(self.utc, from_tz='UTC', to_tz='America/New_York')
         second = when.shift(first, from_tz='America/New_York', to_tz='UTC')
@@ -351,12 +351,12 @@ class Test(unittest.TestCase):
         self.assertNotEqual(first, self.utc)
         self.assertEqual(second, self.utc)
 
-    def test_shift_assert(self):
+    def whentest_shift_assert(self):
         """Test AssertionError raised by when.shift()"""
         self.assertRaises(AssertionError, when.shift, 'a')
         self.assertRaises(AssertionError, when.shift, when.today())
 
-    def test_shift_aware(self):
+    def whentest_shift_aware(self):
         """Test when.shift() for time zone aware datetimes"""
         central = pytz.timezone('America/Chicago')
 
@@ -378,29 +378,29 @@ class Test(unittest.TestCase):
 
         self.assertEqual(first, second)
 
-    def test_timezone(self):
+    def whentest_timezone(self):
         """Test when.timezone()"""
         self.assertEqual(when.timezone(), self.timezone)
 
-    def test_timezone_object(self):
+    def whentest_timezone_object(self):
         """Test when.timezone_object()"""
         local_timezone = pytz.timezone(self.timezone)
         self.assertEqual(when.timezone_object(), local_timezone)
 
-    def test_today(self):
+    def whentest_today(self):
         """Test when.today()"""
         self.assertEqual(when.today(), self.today)
 
-    def test_tomorrow(self):
+    def whentest_tomorrow(self):
         """Test when.tomorrow()"""
         self.assertEqual(when.tomorrow(), self.today + self.one_day)
 
-    def test_unset_utc(self):
+    def whentest_unset_utc(self):
         """Test when.unset_utc()"""
         when.unset_utc()
         self.assertEqual(when._FORCE_UTC, False)
 
-    def test_yesterday(self):
+    def whentest_yesterday(self):
         """Test when.yesterday()"""
         self.assertEqual(when.yesterday(), self.today - self.one_day)
 

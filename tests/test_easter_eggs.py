@@ -15,7 +15,7 @@ sys.path.append('.')
 
 
 class WhenEasterEggTest(unittest.TestCase):
-    def test_is_5_oclock(self):
+    def whentest_is_5_oclock(self):
         """Testing an easter egg..."""
         # Test when.is_5_clock()
 
