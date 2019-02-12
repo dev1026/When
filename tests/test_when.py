@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.abspath('..'))
 sys.path.append('.')
 
 
-class WhenTest(unittest.TestCase):
+class Test(unittest.TestCase):
     def setUp(self):
         when.unset_utc()
 
