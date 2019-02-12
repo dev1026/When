@@ -1,5 +1,5 @@
 =================================
-When.py: Friendly Dates and Times
+When: Friendly Dates and Times
 =================================
 
 Usage
@@ -40,7 +40,7 @@ Full documentation can be found on `Read the Docs`_.
 Installation
 ============
 
-Installing When.py is easy::
+Installing When is easy::
 
     pip install whenpy
 

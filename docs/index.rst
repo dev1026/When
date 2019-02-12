@@ -1,7 +1,7 @@
-When.py 0.3.0
+When 0.3.0
 ===================================
 
-When.py provides user-friendly functions to help perform common date and time
+When provides user-friendly functions to help perform common date and time
 actions.
 
 .. toctree::

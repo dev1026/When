@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# When.py documentation build configuration file
+# When documentation build configuration file
 #
 # This file is execfile()d with the current directory set to its containing dir.
 
@@ -25,7 +25,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'When.py'
+project = u'When'
 copyright = u'2012, Matthew Hwang'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -168,7 +168,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Whenpy.tex', u'When.py Documentation',
+  ('index', 'Whenpy.tex', u'When Documentation',
    u'Matthew Hwang', 'manual'),
 ]
 
@@ -198,7 +198,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'whenpy', u'When.py Documentation',
+    ('index', 'whenpy', u'When Documentation',
      [u'Matthew Hwang'], 1)
 ]
 
@@ -212,7 +212,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Whenpy', u'When.py Documentation',
+  ('index', 'Whenpy', u'When Documentation',
    u'Matthew Hwang', 'Whenpy', 'One line description of project.',
    'Miscellaneous'),
 ]
